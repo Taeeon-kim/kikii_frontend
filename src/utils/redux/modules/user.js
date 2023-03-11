@@ -7,7 +7,8 @@ const getUserInfo = createAction(SIGN_IN, (userInfo) => ({
   userInfo,
 }));
 
-const signInAPI = () => {
+const signInAPI = ({ loginId, password }) => {
+  console.log(loginId, password);
   return async function (dispatch) {};
 };
 
@@ -23,3 +24,5 @@ export default function reducer(state = initialState, action = {}) {
       return state;
   }
 }
+
+export { signInAPI };
