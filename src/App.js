@@ -1,34 +1,18 @@
-import logo from './logo.svg';
+
 import './App.css';
-import { useEffect } from 'react';
-import axios from 'axios';
-import { apis } from './utils/api/apis';
+import { Route, Routes } from 'react-router-dom';
+import DispatchManaingPage from './pages/DispatchManaingPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
-   useEffect(()=>{
-    (async function(){
-      const test = await apis.getDispatch({routeId:"70", date:"2023-02-20"})
-      console.log(test.object)
-    })()
-
-   },[])
+  
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/dispatch" element={<DispatchManaingPage />} />
+        <Route path="/signin" element={<LoginPage />} />
+      </Routes>
     </div>
   );
 }
