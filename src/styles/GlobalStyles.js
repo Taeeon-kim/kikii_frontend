@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
   button{
     cursor:pointer;
   }
+  li{
+    list-style-type: none;
+  }
   
 `;
 
