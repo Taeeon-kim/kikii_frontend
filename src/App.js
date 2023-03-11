@@ -1,7 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { apis } from './utils/api/apis';
 
 function App() {
+   useEffect(()=>{
+    (async function(){
+      const test = await apis.getDispatch({routeId:"70", date:"2023-02-20"})
+      console.log(test.object)
+    })()
+
+   },[])
+
   return (
     <div className="App">
       <header className="App-header">
