@@ -8,4 +8,10 @@ export const apis = {
   // 배차일보 조회
   getDispatch: ({ routeId, date }) =>
     instance.get(`/dispatch/${routeId}/${date}`),
+  // 배차정보 수정
+  patchDispatchInfo: ({ dispatchId, time }) =>
+    instance.patch(`dispatch/update/${dispatchId}/${time}`, {
+      dispatchId,
+      time,
+    }),
 };
