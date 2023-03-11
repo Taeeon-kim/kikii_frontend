@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { apis } from '../utils/api/apis';
+import Header from '../components/header/Header';
 
 const DispatchManaingPage = () => {
     useEffect(() => {
@@ -12,7 +13,10 @@ const DispatchManaingPage = () => {
         })();
       }, []);
   return (
-    <div>DispatchManaingPage</div>
+    <div>
+      <Header />
+      DispatchManaingPage
+      </div>
   )
 }
 

@@ -11,19 +11,25 @@ import {
   StyledInput,
 } from './styledLoginContainer';
 import { signInAPI } from '../../utils/redux/modules/user';
+import { useNavigate } from 'react-router-dom';
 
 const LoginContainer = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const idRef = useRef();
   const passwordRef = useRef();
 
-  const handleLogin = () => {
-    console.log(idRef.current.value, passwordRef.current.value);
+  const handleLogin = async () => {
     const userInfo = {
-      loginId : idRef.current.value,
-      password: passwordRef.current.value
+      loginId: idRef.current.value,
+      password: passwordRef.current.value,
+    };
+
+    const response = await dispatch(signInAPI(userInfo));
+    if (response >= 200 && response < 400) {
+      navigate('/dispatch');
+      console.log('여기서 네비게이트');
     }
-    dispatch(signInAPI(userInfo))
   };
 
   return (
@@ -33,7 +39,11 @@ const LoginContainer = (props) => {
         <StyledInputContainer>
           <StyledInput placeholder={'사원번호'} ref={idRef}></StyledInput>
 
-          <StyledInput placeholder={'비밀번호'} ref={passwordRef}></StyledInput>
+          <StyledInput
+            placeholder={'비밀번호'}
+            ref={passwordRef}
+            type="password"
+          ></StyledInput>
         </StyledInputContainer>
         <StyledLoginButton onClick={handleLogin}>로그인 하기</StyledLoginButton>
       </StyledLoginWapper>
