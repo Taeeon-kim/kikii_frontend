@@ -55,4 +55,5 @@ export const StyledLogoutWrapper = styled.div`
   color: white;
   border-radius: 15px;
   padding: 5px 10px;
+  cursor: pointer;
 `;

@@ -11,9 +11,9 @@ const signInAPI = (loginInfo) => {
   return async function (dispatch) {
     try {
       const response = await apis.signIn(loginInfo);
-      console.log(response);
+      localStorage.setItem('token', response.object.token)
       dispatch(getUserInfo(response.object));
-      return response.object;
+      return response;
     
     } catch (err) {
       console.log(err);

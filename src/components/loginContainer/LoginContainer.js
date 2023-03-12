@@ -26,8 +26,9 @@ const LoginContainer = (props) => {
     };
 
     const response = await dispatch(signInAPI(userInfo));
-    if (response >= 200 && response < 400) {
-      navigate('/dispatch');
+    console.log(response);
+    if (response.status >= 200 && response.status < 400) {
+      navigate('/');
       console.log('여기서 네비게이트');
     }
   };

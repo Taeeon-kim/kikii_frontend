@@ -7,10 +7,16 @@ import {
   StyledProfileContainer,
   StyledProfileWrapper,
   StyledProfileImage,
-  StyledLogoutWrapper
+  StyledLogoutWrapper,
 } from './StyledHeader';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/signin')
+  };
   return (
     <StyledHeaderContainer>
       <StyledMenuListWrapper>
@@ -23,7 +29,7 @@ const Header = () => {
         <StyledProfileWrapper>
           <StyledProfileImage></StyledProfileImage>
         </StyledProfileWrapper>
-        <StyledLogoutWrapper>로그아웃</StyledLogoutWrapper>
+        <StyledLogoutWrapper onClick={handleLogout}>로그아웃</StyledLogoutWrapper>
       </StyledProfileContainer>
     </StyledHeaderContainer>
   );
