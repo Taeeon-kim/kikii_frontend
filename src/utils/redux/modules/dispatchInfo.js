@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAction } from 'redux-actions';
+import { apis } from '../../api/apis';
 
 const GET_DISPATCH_INFO = 'GET_DISPATCH_INFO';
 
@@ -7,8 +8,15 @@ const getDispatchInfo = createAction(GET_DISPATCH_INFO, (dispatchInfo) => ({
   dispatchInfo,
 }));
 
-const getDispatchInfoAPI = () => {
-  return async function (dispatch) {};
+const getDispatchInfoAPI = ({routeId, date}) => {
+  return async function (dispatch) {
+    const response = await apis.getDispatch({
+      routeId,
+      date
+    });
+    console.log(response.object);
+    dispatch(getDispatchInfo(response.object))
+  };
 };
 
 const initialState = {
@@ -23,3 +31,5 @@ export default function reducer(state = initialState, action = {}) {
       return state;
   }
 }
+
+export { getDispatchInfo, getDispatchInfoAPI };

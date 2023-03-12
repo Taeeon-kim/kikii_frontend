@@ -2,24 +2,19 @@ import React, { useEffect } from 'react';
 import { apis } from '../utils/api/apis';
 import Header from '../components/header/Header';
 import BasicTable from '../components/table/BasicTable';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDispatchInfoAPI } from '../utils/redux/modules/dispatchInfo';
 
 const DispatchManaingPage = () => {
-  useEffect(() => {
-    (async function () {
-      // const update = await apis.patchDispatchInfo({dispatchId: 31545, time: "05:31"})
-      // console.log(update)
+  const dispatch = useDispatch();
 
-      const test = await apis.getDispatch({
-        routeId: '70',
-        date: '2023-02-20',
-      });
-      console.log(test.object);
-    })();
+  useEffect(() => {
+    dispatch(getDispatchInfoAPI({ routeId: '70', date: '2023-02-20' }));
   }, []);
 
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       DispatchManaingPage
       <BasicTable />
     </div>
