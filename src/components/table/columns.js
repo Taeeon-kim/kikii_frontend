@@ -14,6 +14,7 @@ export const COLUMNS = [
   {
     Header: '배차 시간',
     accessor: 'startTime',
+    id: 'startTime',
   },
   // {
   //   Header: '2',

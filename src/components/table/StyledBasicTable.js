@@ -16,6 +16,10 @@ export const StyledTable = styled.table`
 export const StyledTd = styled.td`
   border: 1px solid #ddd;
   padding: 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: #ddd;
+  }
 `;
 export const StyledTh = styled.th`
   border: 1px solid #ddd;
@@ -26,8 +30,4 @@ export const StyledTh = styled.th`
   background-color: #04aa6d;
   color: white;
 `;
-export const StyledTr = styled.tr`
-    &:hover{
-        background-color: #ddd;
-    }
-`;
+export const StyledTr = styled.tr``;

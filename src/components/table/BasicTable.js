@@ -11,27 +11,10 @@ import {
   StyledTd,
   StyledTh,
   StyledTr,
-} from './\bStyledBasicTable';
+} from './StyledBasicTable';
 const BasicTable = (props) => {
   const dispatchInfo = useSelector((state) => state.dispatchInfo.dispatchInfo);
 
-  const modifiedData = [
-    {
-      driverName: '최X기1',
-      busNumber: '8000',
-      busRound: [0, 1, 2, 3, 4, 5, 6, 7],
-      startTime: [
-        '05:30',
-        '06:30',
-        '07:30',
-        '08:30',
-        '09:30',
-        '10:30',
-        '11:30',
-        '12:30',
-      ],
-    },
-  ];
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => dispatchInfo, [dispatchInfo]);
 
@@ -41,6 +24,12 @@ const BasicTable = (props) => {
   });
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
+
+  const handleTdClick = (id) => {
+    if (id === 'startTime') {
+      console.log('시간변경');
+    } else alert('배차 시간만 수정가능');
+  };
   return (
     <StyledTableWrapper>
       <StyledTable {...getTableProps()}>
@@ -64,7 +53,7 @@ const BasicTable = (props) => {
                   return (
                     <StyledTd
                       {...cell.getCellProps()}
-                      onClick={() => console.log(cell.row.original)}
+                      onClick={() => handleTdClick(cell.column.id)}
                     >
                       {cell.render('Cell')}
                     </StyledTd>
