@@ -8,14 +8,24 @@ const getDispatchInfo = createAction(GET_DISPATCH_INFO, (dispatchInfo) => ({
   dispatchInfo,
 }));
 
-const getDispatchInfoAPI = ({routeId, date}) => {
+const getDispatchInfoAPI = ({ routeId, date }) => {
   return async function (dispatch) {
     const response = await apis.getDispatch({
       routeId,
-      date
+      date,
     });
     console.log(response.object);
-    dispatch(getDispatchInfo(response.object))
+    dispatch(getDispatchInfo(response.object));
+  };
+};
+const patchDispatchInfo = ({ dispatchId, time }) => {
+  return async function (dispatch) {
+    try {
+      const response = await apis.patchDispatchInfo({ dispatchId, time });
+      return response;
+    } catch (err) {
+      console.error(err);
+    }
   };
 };
 
@@ -32,4 +42,4 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export { getDispatchInfo, getDispatchInfoAPI };
+export { getDispatchInfo, getDispatchInfoAPI, patchDispatchInfo };

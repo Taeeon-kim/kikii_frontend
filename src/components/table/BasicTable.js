@@ -26,10 +26,11 @@ const BasicTable = (props) => {
     tableInstance;
 
   const handleTdClick = (cell) => {
-    console.log(cell.row.original)
     if (cell.column.id === 'startTime') {
       props.setIsOpenChangeContainer(true);
-      props.setSelectedInfomation(cell.row.original)
+      props.setSelectedInfomation(cell.row.original);
+      props.changedHour.current.value = '';
+      props.changedMinute.current.value = '';
     } else alert('배차 시간만 수정가능');
   };
   return (

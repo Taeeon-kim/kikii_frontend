@@ -34,3 +34,20 @@ export const changeMinusOneDate = (dateObj) => {
   );
   return newPlusDateObj;
 };
+
+export function numkeyCheck(num) {
+  return num.replace(/[^0-9]/g, '');
+}
+export function hourCheck(num) {
+  const reg = /^([01][0-9]|2[0-3])/g;
+  if (reg.test(num)) {
+    return num;
+  } else return '';
+}
+
+export function minuteCheck(num) {
+  const reg = /^([0-5][0-9])/g;
+  if (reg.test(num)) {
+    return num;
+  } else return '';
+}

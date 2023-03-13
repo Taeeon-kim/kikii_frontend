@@ -10,8 +10,5 @@ export const apis = {
     instance.get(`/dispatch/${routeId}/${date}`),
   // 배차정보 수정
   patchDispatchInfo: ({ dispatchId, time }) =>
-    instance.patch(`dispatch/update/${dispatchId}/${time}`, {
-      dispatchId,
-      time,
-    }),
+    instance.patch(`dispatch/update/${dispatchId}/${time}`),
 };
