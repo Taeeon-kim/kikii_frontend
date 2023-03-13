@@ -3,13 +3,15 @@ import { Route, Routes } from 'react-router-dom';
 import DispatchManaingPage from './pages/DispatchManaingPage';
 import LoginPage from './pages/LoginPage';
 import Permit from './utils/Permit';
+import Main from './pages/Main';
 
 function App() {
   return (
     <div>
       <Routes>
+        <Route path="/" element={<Main />} />
         <Route
-          path="/"
+          path="/dispatch"
           element={
             <Permit>
               <DispatchManaingPage />
