@@ -27,14 +27,14 @@ const Header = () => {
         >
           홈
         </StyledList>
+        <StyledList ownPath="/work_manage">근무 관리</StyledList>
         <StyledList
           onClick={() => handleNavigate('dispatch')}
           locatePath={locate.pathname}
           ownPath="/dispatch"
         >
-          근무 관리
+          배차 관리
         </StyledList>
-        <StyledList ownPath="/dispatch_manage">배차 관리</StyledList>
         <StyledList ownPath="/resource_manage">자원 관리</StyledList>
       </StyledMenuListWrapper>
       <StyledProfileContainer>
