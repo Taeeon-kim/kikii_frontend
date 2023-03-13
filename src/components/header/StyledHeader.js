@@ -32,6 +32,7 @@ export const StyledProfileContainer = styled.div`
   display: flex;
   gap: 10px;
   margin: auto 0;
+  align-items: center;
 `;
 
 export const StyledProfileWrapper = styled.div`

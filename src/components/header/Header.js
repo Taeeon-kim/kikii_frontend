@@ -13,9 +13,11 @@ import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
+  const userName = sessionStorage.getItem('name');
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/signin')
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('name');
+    navigate('/signin');
   };
   return (
     <StyledHeaderContainer>
@@ -29,7 +31,10 @@ const Header = () => {
         <StyledProfileWrapper>
           <StyledProfileImage></StyledProfileImage>
         </StyledProfileWrapper>
-        <StyledLogoutWrapper onClick={handleLogout}>로그아웃</StyledLogoutWrapper>
+        <p>{userName} 님</p>
+        <StyledLogoutWrapper onClick={handleLogout}>
+          로그아웃
+        </StyledLogoutWrapper>
       </StyledProfileContainer>
     </StyledHeaderContainer>
   );

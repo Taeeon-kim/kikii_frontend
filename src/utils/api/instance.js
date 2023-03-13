@@ -7,7 +7,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    const USER_TOKEN = `Bearer ${localStorage.getItem('token')}`; // 토큰으로 할시 필요
+    const USER_TOKEN = `Bearer ${sessionStorage.getItem('token')}`; // 토큰으로 할시 필요
 
     USER_TOKEN !== 'Bearer null' &&
       (config.headers['Authorization'] = USER_TOKEN);

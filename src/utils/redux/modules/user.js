@@ -11,7 +11,9 @@ const signInAPI = (loginInfo) => {
   return async function (dispatch) {
     try {
       const response = await apis.signIn(loginInfo);
-      localStorage.setItem('token', response.object.token)
+      sessionStorage.setItem('token', response.object.token)
+      sessionStorage.setItem('name', response.object.name)
+
       dispatch(getUserInfo(response.object));
       return response;
     
@@ -24,7 +26,7 @@ const signInAPI = (loginInfo) => {
 };
 
 const initialState = {
-  userInfo: {},
+  dispatchInfo: {},
 };
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {

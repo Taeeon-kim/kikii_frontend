@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Permit = (props) => {
   const navigate = useNavigate();
   console.log(history.location.pathname);
-  const is_login = localStorage.getItem('token');
+  const is_login = sessionStorage.getItem('token');
   useEffect(() => {
     if (!is_login) {
         alert('로그인후 이용가능')

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const is_login = localStorage.getItem('token');
+  const is_login = sessionStorage.getItem('token');
   useEffect(() => {
     if (is_login) {
       navigate('/');
