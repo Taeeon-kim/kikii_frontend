@@ -1,27 +1,47 @@
 import React from 'react';
-import { StyledInputHourAndMin, StyledInputTime, StyledWrapper } from './StyledEditContainer';
+import {
+  StyledDivHourAndMin,
+  StyledInputTime,
+  StyledContainer,
+  Styledwrap,
+  StyledTitle,
+  StyledChangeWrapper,
+  StyledButtonWrapper,
+  StyledButton,
+  StyledDivDispatchChange_B,
+  StyledDivDispatchChange_A,
+  StyeldInputDetailInfo,
+} from './StyledEditContainer';
 
 const EditContainer = (props) => {
   return (
-    <StyledWrapper>
-      <p>시간수정</p>
-      <div className="dispatch-change-wrapper">
-        <div className="dispatch-change-a">
-          <p>A. 변경할 시간</p>
-          <p>변경할 시간을 선택(클릭)해주세요.</p>
-          <input type="text" readOnly></input>
-        </div>
-        <div className="dispatch-change-b">
-          <p>B. 수정 시간 입력</p>
-          <p>수정할 시간을 입력해주세요.</p>
-          <StyledInputHourAndMin>
-            <StyledInputTime type="text" />
-            <span> : </span>
-            <StyledInputTime type="text" />
-          </StyledInputHourAndMin>
-        </div>
-      </div>
-    </StyledWrapper>
+    <StyledContainer>
+      <Styledwrap>
+        <StyledTitle>
+          <h2>시간 수정</h2>
+        </StyledTitle>
+        <StyledChangeWrapper className="dispatch-change-wrapper">
+          <StyledDivDispatchChange_A>
+            <h3>A. 변경할 시간</h3>
+            <p>변경할 시간을 선택(클릭)해주세요.</p>
+            <StyeldInputDetailInfo type="text" readOnly></StyeldInputDetailInfo>
+          </StyledDivDispatchChange_A>
+          <StyledDivDispatchChange_B>
+            <h3>B. 수정 시간 입력</h3>
+            <p>수정할 시간을 입력해주세요.</p>
+            <StyledDivHourAndMin>
+              <StyledInputTime type="text" />
+              <span> : </span>
+              <StyledInputTime type="text" />
+            </StyledDivHourAndMin>
+          </StyledDivDispatchChange_B>
+          <StyledButtonWrapper>
+            <StyledButton type="button">취소</StyledButton>
+            <StyledButton type="button">변경</StyledButton>
+          </StyledButtonWrapper>
+        </StyledChangeWrapper>
+      </Styledwrap>
+    </StyledContainer>
   );
 };
 
