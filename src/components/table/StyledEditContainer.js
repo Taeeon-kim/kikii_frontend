@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledContainer = styled.div`
   /* position: fixed; */
   /* display: flex; */
-  width: 400px;
+  width: 500px;
   height: 100vh;
   right: 0;
   top: 70px;
@@ -13,7 +13,7 @@ export const StyledContainer = styled.div`
 `;
 
 export const Styledwrap = styled.div`
-  width: 80%;
+  width: 60%;
   margin: 50px auto;
 `;
 
@@ -31,7 +31,7 @@ export const StyledDivHourAndMin = styled.div`
 `;
 
 export const StyledInputTime = styled.input`
-  width: 80px;
+  width: 100px;
   height: 30px;
   border: none;
   text-align: center;
@@ -39,9 +39,10 @@ export const StyledInputTime = styled.input`
 
 export const StyeldInputDetailInfo = styled.input`
   border: none;
-  width: 200px;
+  width: 250px;
   height: 30px;
   text-align: center;
+  font-size: 15px;
 `;
 export const StyledButtonWrapper = styled.div`
   display: flex;
