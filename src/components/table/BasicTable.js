@@ -1,10 +1,17 @@
 import React, { useMemo } from 'react';
 import { useTable } from 'react-table';
 // import { createColumnHelper } from '@tanstack/react-table';
-import MOCKDATA from './MOCKDATA.json';
+
 import { COLUMNS } from './columns';
-import './table.css';
+
 import { useSelector } from 'react-redux';
+import {
+  StyledTable,
+  StyledTableWrapper,
+  StyledTd,
+  StyledTh,
+  StyledTr,
+} from './\bStyledBasicTable';
 const BasicTable = (props) => {
   const dispatchInfo = useSelector((state) => state.dispatchInfo.dispatchInfo);
 
@@ -35,38 +42,40 @@ const BasicTable = (props) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
   return (
-    <div className="table-wrapper">
-      <table {...getTableProps()}>
+    <StyledTableWrapper>
+      <StyledTable {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <StyledTr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps}>{column.render('Header')}</th>
+                <StyledTh {...column.getHeaderProps}>
+                  {column.render('Header')}
+                </StyledTh>
               ))}
-            </tr>
+            </StyledTr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
           {rows.map((row, index) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <StyledTr {...row.getRowProps()}>
                 {row.cells.map((cell) => {
                   return (
-                    <td
+                    <StyledTd
                       {...cell.getCellProps()}
                       onClick={() => console.log(cell.row.original)}
                     >
                       {cell.render('Cell')}
-                    </td>
+                    </StyledTd>
                   );
                 })}
-              </tr>
+              </StyledTr>
             );
           })}
         </tbody>
-      </table>
-    </div>
+      </StyledTable>
+    </StyledTableWrapper>
   );
 };
 
