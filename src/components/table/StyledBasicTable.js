@@ -10,7 +10,7 @@ export const StyledTableWrapper = styled.div`
 export const StyledTable = styled.table`
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100vw;
+  width: 100%;
 `;
 
 export const StyledTd = styled.td`
