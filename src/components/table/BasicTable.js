@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { useTable } from 'react-table';
-// import { createColumnHelper } from '@tanstack/react-table';
 
 import { COLUMNS } from './columns';
 
