@@ -24,8 +24,13 @@ export const StyledMenuListWrapper = styled.ul`
 export const StyledList = styled.li`
   font-size: 20px;
   font-weight: bold;
-  color: #000;
+  color: ${({ locatePath, ownPath }) =>
+    locatePath === ownPath ? 'white' : '#000'};
   cursor: pointer;
+  &:hover{
+    color: white;
+  }
+  
 `;
 
 export const StyledProfileContainer = styled.div`

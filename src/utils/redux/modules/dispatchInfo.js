@@ -14,7 +14,6 @@ const getDispatchInfoAPI = ({ routeId, date }) => {
       routeId,
       date,
     });
-    console.log(response.object);
     dispatch(getDispatchInfo(response.object));
   };
 };
