@@ -22,27 +22,39 @@ const DispatchManaingPage = () => {
   }, [distpatchDate]);
 
   return (
-    <StyeldWrapper>
+    <StyeldContainer>
       <Header />
-      <div>
-        <SelectDate
-          setDispatchDate={setDispatchDate}
-          distpatchDate={distpatchDate}
-          setDispatchDateObj={setDispatchDateObj}
-          dispatchDateObj={dispatchDateObj}
-          dispatchDateString={dispatchDateString}
-          setDispatchDateString={setDispatchDateString}
-        />
-        <BasicTable />
+
+      <StyledWrapper>
+        <StyledDateAndTableWrapper>
+          <SelectDate
+            setDispatchDate={setDispatchDate}
+            distpatchDate={distpatchDate}
+            setDispatchDateObj={setDispatchDateObj}
+            dispatchDateObj={dispatchDateObj}
+            dispatchDateString={dispatchDateString}
+            setDispatchDateString={setDispatchDateString}
+          />
+          <BasicTable />
+        </StyledDateAndTableWrapper>
         <EditContainer />
-      </div>
-    </StyeldWrapper>
+      </StyledWrapper>
+    </StyeldContainer>
   );
 };
 
-const StyeldWrapper = styled.div`
-position: relative;
-margin-top: 70px;
-`
+const StyeldContainer = styled.div`
+  /* position: relative; */
+  margin-top: 70px;
+`;
+const StyledWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledDateAndTableWrapper = styled.div`
+  width: 100%;
+`;
 
 export default DispatchManaingPage;
