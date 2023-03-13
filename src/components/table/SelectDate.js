@@ -35,9 +35,9 @@ const SelectDate = (props) => {
 
 const StyledSelectDateWrapper = styled.div`
   display: flex;
-  padding: 100px 0 0;
   width: 400px;
   margin: 0 auto;
+  padding: 20px 0 0;
   font-size: 20px;
   font-weight: bold;
   justify-content: space-around;

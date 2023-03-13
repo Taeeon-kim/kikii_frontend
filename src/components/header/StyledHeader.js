@@ -3,10 +3,12 @@ import basic_profile from '../../assets/images/basic_profile.png';
 export const StyledHeaderContainer = styled.div`
   display: flex;
   position: fixed;
+  top: 0;
   height: 70px;
   background-color: #e2e5ed;
   justify-content: space-around;
   width: 100%;
+  z-index: 2;
 `;
 
 export const StyledMenuListWrapper = styled.ul`
