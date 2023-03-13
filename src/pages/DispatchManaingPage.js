@@ -13,14 +13,15 @@ const DispatchManaingPage = () => {
   const [dispatchDateObj, setDispatchDateObj] = useState(
     new Date('2023', '02', '20')
   );
-
+  const [isOpenChangeContainer, setIsOpenChangeContainer] = useState(false);
+  const [selectedInfomation, setSelectedInfomation] = useState({});
   const [distpatchDate, setDispatchDate] = useState('2023-02-20');
   const [dispatchDateString, setDispatchDateString] =
     useState('2023년 02월 20일 (금)');
   useEffect(() => {
     dispatch(getDispatchInfoAPI({ routeId: '70', date: distpatchDate }));
   }, [distpatchDate]);
-
+  console.log(selectedInfomation);
   return (
     <StyeldContainer>
       <Header />
@@ -35,9 +36,14 @@ const DispatchManaingPage = () => {
             dispatchDateString={dispatchDateString}
             setDispatchDateString={setDispatchDateString}
           />
-          <BasicTable />
+          <BasicTable
+            setIsOpenChangeContainer={setIsOpenChangeContainer}
+            setSelectedInfomation={setSelectedInfomation}
+          />
         </StyledDateAndTableWrapper>
-        <EditContainer />
+        {isOpenChangeContainer ? (
+          <EditContainer selectedInfomation={selectedInfomation} />
+        ) : null}
       </StyledWrapper>
     </StyeldContainer>
   );

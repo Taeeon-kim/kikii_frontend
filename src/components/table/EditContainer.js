@@ -12,6 +12,7 @@ import {
   StyledDivDispatchChange_A,
   StyeldInputDetailInfo,
 } from './StyledEditContainer';
+import { useSelector } from 'react-redux';
 
 const EditContainer = (props) => {
   return (
@@ -24,7 +25,15 @@ const EditContainer = (props) => {
           <StyledDivDispatchChange_A>
             <h3>A. 변경할 시간</h3>
             <p>변경할 시간을 선택(클릭)해주세요.</p>
-            <StyeldInputDetailInfo type="text" readOnly></StyeldInputDetailInfo>
+            <StyeldInputDetailInfo
+              type="text"
+              readOnly
+              value={
+                `${props.selectedInfomation.driverName} - ${
+                  props.selectedInfomation.busRound + 1
+                } 회차 / ${props.selectedInfomation.startTime}` || ''
+              }
+            ></StyeldInputDetailInfo>
           </StyledDivDispatchChange_A>
           <StyledDivDispatchChange_B>
             <h3>B. 수정 시간 입력</h3>

@@ -34,12 +34,14 @@ export const StyledInputTime = styled.input`
   width: 80px;
   height: 30px;
   border: none;
+  text-align: center;
 `;
 
 export const StyeldInputDetailInfo = styled.input`
   border: none;
   width: 200px;
   height: 30px;
+  text-align: center;
 `;
 export const StyledButtonWrapper = styled.div`
   display: flex;

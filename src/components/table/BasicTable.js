@@ -25,9 +25,11 @@ const BasicTable = (props) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
 
-  const handleTdClick = (id) => {
-    if (id === 'startTime') {
-      console.log('시간변경');
+  const handleTdClick = (cell) => {
+    console.log(cell.row.original)
+    if (cell.column.id === 'startTime') {
+      props.setIsOpenChangeContainer(true);
+      props.setSelectedInfomation(cell.row.original)
     } else alert('배차 시간만 수정가능');
   };
   return (
@@ -53,7 +55,7 @@ const BasicTable = (props) => {
                   return (
                     <StyledTd
                       {...cell.getCellProps()}
-                      onClick={() => handleTdClick(cell.column.id)}
+                      onClick={() => handleTdClick(cell)}
                     >
                       {cell.render('Cell')}
                     </StyledTd>
